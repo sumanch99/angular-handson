@@ -1,0 +1,19 @@
+
+<form [formGroup]="empForm" (ngSubmit)="onSubmit()">
+    Name: <input type="text" name="name" formControlName="name"> 
+
+<div> 
+            <h3>Department</h3> 
+            <select formControlName="department">
+                <option 
+                *ngFor="let department of dept" 
+                [ngValue]="department"
+                [selected]="department.id == employee.department.id"
+                > 
+                    {{department.name}} 
+                </option> 
+            </select> 
+</div>
+<br><br>
+<button type="submit" [disabled]="!empForm.valid">Submit</button>
+</form>
